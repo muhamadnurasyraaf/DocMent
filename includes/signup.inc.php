@@ -9,11 +9,16 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
     $password_repeat = $_POST['password-repeat'];
 
-    $user = new SignupContr($username,$age,$type,$email,$password,$password_repeat);
+    $user = new SignUp($username,$email,$age,$type,$password,$password_repeat);
+
+    $message = $user->signUpUser();
+
+    if($message){
+        echo $message;
+    }else if(!$message){
+        header("location:../index.html");
+    }
 
 
-    $user->SignUpUser();
-
-    header("location:..//index.html");
     
 }
