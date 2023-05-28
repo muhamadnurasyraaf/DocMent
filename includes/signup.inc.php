@@ -1,5 +1,4 @@
 <?php
-include_once '../classes/signup-contr.classes.php';
 include_once '../classes/signup.classes.php';
 if(isset($_POST['submit'])){
 
