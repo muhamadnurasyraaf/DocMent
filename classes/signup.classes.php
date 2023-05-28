@@ -4,14 +4,21 @@ class SignUp extends Dbh{
 
     protected function checkUser($username,$email){
         $message = null;
+        $checkBool =  false;
         $stmt = $this->connect()->prepare("SELECT * FROM user WHERE username = ? OR email = ?;");
-
-
-        if(!$stmt->execute([$username,$email])){
-           $message = "There is something wrong;Error Code : ". $stmt->errorCode();
-        }
+        $stmt->execute([$username,$email]);
         if($stmt->rowCount() > 0){
             $message = "Username or Email Already in use Error Code:VAL 5";
+            $checkBool = false;
+        }else{
+            $checkBool =  true;
         }
+        return $checkBool;
+    }
+
+    protected function SignUpUser($username,$age,$type,$email,$password){
+        $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
+        $stmt = $this->connect()->prepare("INSERT INTO user(username,email,password,type,age) VALUES(?,?,?,?,?);");
+        $stmt->execute([$username,$email,$hashedpassword,$type,$age]);
     }
 }

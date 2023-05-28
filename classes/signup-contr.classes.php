@@ -1,6 +1,6 @@
 <?php
 
-class SignupContr{
+class SignupContr extends SignUp{
    private $username;
    private $age;
    private $typeReg;
