@@ -1,4 +1,5 @@
 <?php
+require_once 'signup.classes.php';
 
 class SignupContr extends SignUp{
    private $username;
@@ -17,7 +18,7 @@ class SignupContr extends SignUp{
       $this->password_repeat = $password_repeat;
    }
    
-   protected function SignUpUser(){
+   public function SignUpUser(){
       if(!$this->isEmptyInput()){
          if($this->validateEmail()){
             if($this->passwordMatch()){

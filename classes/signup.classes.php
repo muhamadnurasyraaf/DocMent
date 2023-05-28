@@ -1,5 +1,5 @@
 <?php
-require 'dbh.classes.php';
+require_once 'dbh.classes.php';
 class SignUp extends Dbh{
 
     protected function checkUser($username,$email){

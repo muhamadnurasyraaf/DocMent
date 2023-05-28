@@ -1,7 +1,6 @@
 <?php
-include '../classes/dbh.classes.php';
-include '../classes/signup-contr.classes.php';
-include '../classes/signup.classes.php';
+include_once '../classes/signup-contr.classes.php';
+include_once '../classes/signup.classes.php';
 if(isset($_POST['submit'])){
 
     $username = $_POST['username'];
@@ -16,6 +15,6 @@ if(isset($_POST['submit'])){
 
     $user->SignUpUser();
 
-    header("location:index.php");
+    header("location:..//index.html");
     
 }
