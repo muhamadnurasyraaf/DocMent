@@ -16,7 +16,26 @@ class SignupContr extends SignUp{
       $this->password = $password;
       $this->password_repeat = $password_repeat;
    }
-
+   
+   protected function SignUpUser(){
+      if(!$this->isEmptyInput()){
+         if($this->validateEmail()){
+            if($this->passwordMatch()){
+               if($this->checkUser($this->username,$this->email)){
+                  $this->setUser($this->username,$this->age,$this->typeReg,$this->email,$this->password);
+               }
+            }else{
+               //if password doesnt match
+            }
+         }
+         else{
+            //if email not valid
+         }
+      }else{
+         //if input is empty
+      }
+      
+   }
    private function isEmptyInput(){
       $emptycheck = null;
       if(empty($this->username) || empty($this->age) || empty($this->typeReg) ||empty($this->email) || empty($this->password) || empty($this->password_repeat) ){
