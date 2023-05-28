@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-family: 'Montserrat',sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: overline;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin:7% auto 0;
+    min-width: 20%;
+    max-width: 50%;
+    gap: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1em 1em 2em;
+    align-items: center;
+}
+input:not(.submit-btn){
+    max-width: 90%;
+    padding: 1em 0.5em;
+    border-radius: 0.5em;
+    font-size: 1rem;
+}
+.submit-btn{
+    cursor: pointer;
+    font-family: 'Montserrat',sans-serif;
+    padding: 1em 2em;
+    font-weight: bold;
+    border: none;
+    background-color: #ac3b61;
+    color: white;
+}
+.input::placeholder{
+    font-family: 'Poppins',sans-serif;
+}
+
+a{
+    font-family: 'Poppins',sans-serif;
+    color: #ac3b61;
+    text-decoration: none;
+}
+.radio-input label{
+    font-family: 'Montserrat',sans-serif;
+}

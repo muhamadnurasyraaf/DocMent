@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu',sans-serif;
+}
+header{
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #edc7b7;
+    color: #bab2b5;
+}
+.header1{
+    font-family: 'Catamaran',sans-serif;
+    color: #ac3b61;
+}
+header div{
+    display: flex;
+    align-items: center;
+
+}
+div ul{
+    display: flex;
+    gap: 1em;
+    list-style-type: none;
+}
+header a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.4s ease;
+}
+@media (max-width:600px){
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.landing{
+    display: flex;
+    background-image: url(../images/bfg2.jpg);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   min-height: 670px;
+}
+.title{
+    color: #ac3b61;
+    font-size: 3rem;
+}
+.landing div{
+   margin: auto auto;
+   text-align: center;
+}
+.subtitle{
+    color: #9a1750;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+.btn{
+    border: none;
+    border-radius: 20px;
+    padding: 1em 2em;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #1DA1F2;
+    color: white;
+    transition: background 0.2s ease-in;
+}
+.btn:hover{
+    background-color: #ff6f61;
+}
+.bot{
+    font-weight: bold;
+    margin-top: 1.5em;
+    color: #05386b;
+}
+.nav a:hover{
+    color: #9a1750;
+}
+.footer{
+    padding: 1.6em;
+    background-color: #bab2b5;
+}
+.parent{
+    display: flex;
+    margin: 0 auto;
+    max-width: 500px;
+    justify-content: space-around;
+}
+.child ul{
+    display: flex;
+    flex-direction: column;
+}
+.child a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #ac3b61;
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu',sans-serif;
+}
+header{
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #edc7b7;
+    color: #bab2b5;
+}
+.header1{
+    font-family: 'Catamaran',sans-serif;
+    color: #ac3b61;
+}
+header div{
+    display: flex;
+    align-items: center;
+
+}
+div ul{
+    display: flex;
+    gap: 1em;
+    list-style-type: none;
+}
+header a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.4s ease;
+}
+@media (max-width:600px){
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.nav a:hover{
+    color: #9a1750;
+}
+.top{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    font-weight: bold;
+}
+.clinics{
+    display: flex;
+    justify-content: space-around;
+}
+.clinic-details{
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 0 0 1em;
+    border-radius: 1em;
+}
+.clinic-img{
+    width: 100%;
+}
