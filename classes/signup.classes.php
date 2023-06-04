@@ -17,6 +17,15 @@ class SignUp extends Dbh{
         $this->password_repeat = $password_repeat;
     }
 
+   private function validateNumber(){
+        $age = $this->age;
+        if(!ctype_digit($age) || $age <= 0){
+            return false;
+        }else{
+            return true;
+        }
+   }
+
     public function signUpUser(){
         $message = null;
         $hashedpassword = password_hash($this->password,PASSWORD_DEFAULT);
@@ -25,9 +34,9 @@ class SignUp extends Dbh{
         }
         else if(!$this->pwdMatch()){
             $message = "Password does not match";
-        }else if($this->lengthCheck() && $this->pwdMatch()){
-            $stmt = $this->connect()->prepare("INSERT INTO user(username,email,password,type) VALUES(?,?,?,?);");
-            $newstmt = $stmt->execute([$this->username,$this->email,$hashedpassword,$this->type]);
+        }else if($this->lengthCheck() && $this->pwdMatch() && $this->validateNumber()){
+            $stmt = $this->connect()->prepare("INSERT INTO user(username,email,password,type,age) VALUES(?,?,?,?,?);");
+            $newstmt = $stmt->execute([$this->username,$this->email,$hashedpassword,$this->type,$this->age]);
             if($newstmt){
                 $message = true;
             }else{

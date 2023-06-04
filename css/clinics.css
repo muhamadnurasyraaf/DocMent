@@ -45,6 +45,7 @@ header a{
     justify-content: flex-end;
     gap: 1em;
     font-weight: bold;
+    margin-bottom: 2em;
 }
 .clinics{
     display: flex;
