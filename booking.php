@@ -1,3 +1,14 @@
+<?php 
+    include 'includes/retrieveUser.inc.php';
+    session_start();
+    $id = $_SESSION['id'];
+    $data = getData($id);
+
+    if($data !== false){
+        
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

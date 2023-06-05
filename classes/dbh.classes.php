@@ -10,7 +10,7 @@ class Dbh{
             return $stmt;
 
         }catch(PDOException $e){
-            echo 'Error ' . $e->getMessage();
+            return 'Error ' . $e->getMessage();
         }
         
     }

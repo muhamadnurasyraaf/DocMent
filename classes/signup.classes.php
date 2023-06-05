@@ -35,16 +35,29 @@ class SignUp extends Dbh{
         else if(!$this->pwdMatch()){
             $message = "Password does not match";
         }else if($this->lengthCheck() && $this->pwdMatch() && $this->validateNumber()){
-            $stmt = $this->connect()->prepare("INSERT INTO user(username,email,password,type,age) VALUES(?,?,?,?,?);");
-            $newstmt = $stmt->execute([$this->username,$this->email,$hashedpassword,$this->type,$this->age]);
-            if($newstmt){
-                $message = true;
-            }else{
-                $message = false;
-            } 
+            if($this->type == "Patient"){
+                $stmt = $this->connect()->prepare("INSERT INTO user(username,email,password,type,age) VALUES(?,?,?,?,?);");
+                $newstmt = $stmt->execute([$this->username,$this->email,$hashedpassword,$this->type,$this->age]);
+                if($newstmt){
+                    $message = true;
+                }else{
+                    $message = false;
+                } 
+            }else if($this->type == "Doctor"){
+                $stmt = $this->connect()->prepare("INSERT INTO doctor(username,email,age,password) VALUES(?,?,?,?,?);");
+                $newstmt = $stmt->execute([$this->username,$this->email,$this->age,$hashedpassword]);
+                if($newstmt){
+                    $message = true;
+                }else{
+                    $message = false;
+                } 
+            }
+            
+           
         }
         return $message;
     }
+    
     private function lengthCheck(){
         $result = null;
         if(strlen($this->username) > 40){
