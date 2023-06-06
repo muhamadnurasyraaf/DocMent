@@ -44,7 +44,7 @@ class SignUp extends Dbh{
                     $message = false;
                 } 
             }else if($this->type == "Doctor"){
-                $stmt = $this->connect()->prepare("INSERT INTO doctor(username,email,age,password) VALUES(?,?,?,?,?);");
+                $stmt = $this->connect()->prepare("INSERT INTO doctorTemp(username,email,age,password) VALUES(?,?,?,?);");
                 $newstmt = $stmt->execute([$this->username,$this->email,$this->age,$hashedpassword]);
                 if($newstmt){
                     $message = true;
@@ -57,7 +57,7 @@ class SignUp extends Dbh{
         }
         return $message;
     }
-    
+
     private function lengthCheck(){
         $result = null;
         if(strlen($this->username) > 40){
