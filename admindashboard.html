@@ -51,14 +51,14 @@
             </div>
             <li class="item">
               <a href="#" class="link flex">
-                <i class="bx bxs-magic-wand"></i>
+                <i class='bx bx-plus-medical' ></i>
                 <span>Doctor Approval</span>
               </a>
             </li>
             <li class="item">
               <a href="#" class="link flex">
-                <i class="bx bx-folder"></i>
-                <span>Edit Data</span>
+                <i class='bx bx-health' ></i>
+                <span>Clinic Requests</span>
               </a>
             </li>
             <li class="item">
@@ -103,8 +103,103 @@
     <div class="content top">
         <p>Dashboard</p>
     </div>
-    
 
+    <div id="stats">
+      <div class="p-stats patient">
+        <div class="types">
+          <p class="count">400</p>
+          <i class='bx bx-male-female'></i>
+        </div>
+        <div>
+          Patients Registered
+        </div>
+      </div>
+      <div class="p-stats clinic">
+        <div class="types">
+          <p class="count">20</p>
+          <i class='bx bx-male-female'></i>
+        </div>
+        <div>
+          Clinics/Hospital Registered
+        </div>
+      </div>
+      <div class="p-stats doctor">
+        <div class="types">
+          <p class="count">150</p>
+          <i class='bx bx-male-female'></i>
+        </div>
+        <div>
+          Doctors Registered
+        </div>
+      </div>
+    </div>
+
+    <p class="docReg">Doctor Registration Requests</p>
+    <table class="docApp">
+      <tr class="head">
+        <th>ID</th>
+        <th>Username</th>
+        <th>Clinic/Hospital ID</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Ahmad Kamal</td>
+        <td>Klinik Kesihatan Endau</td>
+        <td>
+          <div class="action">
+            <a href=""><i class='bx bx-check' ></i></a>
+            <a href=""><i class='bx bx-x' ></i></a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Ahmad Kamal</td>
+        <td>Klinik Kesihatan Endau</td>
+        <td>
+          <div class="action">
+            <a href=""><i class='bx bx-check' ></i></a>
+            <a href=""><i class='bx bx-x' ></i></a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Ahmad Kamal</td>
+        <td>Klinik Kesihatan Endau</td>
+        <td>
+          <div class="action">
+            <a href=""><i class='bx bx-check' ></i></a>
+            <a href=""><i class='bx bx-x' ></i></a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Ahmad Kamal</td>
+        <td>Klinik Kesihatan Endau</td>
+        <td>
+          <div class="action">
+            <a href=""><i class='bx bx-check' ></i></a>
+            <a href=""><i class='bx bx-x' ></i></a>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <p class="docReg">Insert New User</p>
+    <form action="" method="post">
+      <input type="text" name="username" placeholder="Username.." autocomplete="off">
+      <input type="email" name="email" placeholder="Email.." autocomplete="off">
+      <input type="text" name="password" placeholder="Password.." autocomplete="off">
+      <input type="number" name="age" placeholder="Age" autocomplete="off">
+      <div class="radio">
+        <label for=""><input type="radio" name="type" value="patient"> Patient</label>
+        <label for=""><input type="radio" name="type" value="doctor"> Doctor</label>
+      </div>
+      <input type="submit" value="Submit" class="submit-btn">
+    </form>
     
   </body>
 </html>

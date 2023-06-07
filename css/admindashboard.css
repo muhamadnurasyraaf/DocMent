@@ -228,3 +228,97 @@ body:not(.sidebar){
     padding: 1em 2em;
     border-radius: 2em;
 }
+#stats{
+  margin-top: 4em;
+  display: flex;
+  justify-content: space-around;
+}
+.types{
+  display: flex;
+  justify-content: space-between;
+}
+.count{
+  font-weight: bold;
+  font-size: 2rem;
+}
+.p-stats{
+  padding: 4em 2em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 2em;
+}
+.patient{
+  color: white;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+.clinic{
+  color: white;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+.doctor{
+  color: white;
+  background-color: #FFE53B;
+  background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+}
+.docReg{
+  margin-top: 5em;
+  font-weight: bold;
+  font-size: 1.7rem;
+  text-decoration: overline;
+}
+.docApp{
+  margin-top: 1.5em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 4em;
+}
+.head{
+  color: #fafafa;
+  background-color: #FFE53B;
+  background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+}
+th,td{
+  padding:2em 4em;
+}
+tr:nth-child(odd){
+  background-color: #d3d3d3;
+}
+.action{
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+  font-size: 1.3em;
+  
+}
+.action a{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 0.5em 1.2em;
+  border-radius: 0.5em;
+}
+form{
+  margin-top: 2.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 50%;
+  align-items: center;
+}
+form input:not(.submit-btn){
+  padding: 1em 2em;
+  border: 0.5em;
+}
+.submit-btn{
+  font-weight: bold;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 0.2em;
+  background-color: #FF2525;
+  color: white;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.submit-btn:hover{
+  opacity: 0.4;
+}
+
