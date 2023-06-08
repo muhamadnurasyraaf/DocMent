@@ -232,6 +232,7 @@ body:not(.sidebar){
   margin-top: 4em;
   display: flex;
   justify-content: space-around;
+  gap: 1em;
 }
 .types{
   display: flex;
@@ -303,6 +304,10 @@ form{
   gap: 1.5em;
   width: 50%;
   align-items: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 2em;
+  border-radius: 2em;
+  margin-bottom: 4em;
 }
 form input:not(.submit-btn){
   padding: 1em 2em;
@@ -320,5 +325,41 @@ form input:not(.submit-btn){
 }
 .submit-btn:hover{
   opacity: 0.4;
+}
+.headClinc{
+  color: #fafafa;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+.notifications{
+  color: white;
+  border-radius: 0.4em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+}
+.noti{
+  padding: .5em 1em;
+  border-radius: 1em;
+  font-size: 1.5rem;
+  display: flex;
+  gap: 1em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.n-type{
+  color: rgb(243, 122, 17);
+}
+.search-btn{
+  cursor: pointer;
+  color: white;
+  background-color: #4158D0;
+  font-weight: bold;
+  border-radius: 0.4em;
+}
+@media (max-width:600px){
+  
 }
 
