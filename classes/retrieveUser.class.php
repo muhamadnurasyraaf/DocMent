@@ -3,18 +3,41 @@
     class User extends Dbh{
 
         private $id;
+        private $type;
 
-        public function __construct($id){
+        public function __construct($id,$type){
             $this->id = $id;
+            $this->type = $type;
         }
        public function getUser(){
-        $stmt = $this->connect()->prepare("SELECT * FROM user WHERE user_id = ?;");
-        $stmt->execute([$this->id]);
-        if($stmt->rowCount() > 0){
-            $data = $stmt->fetch();
-            return $data;
+        if($this->type == "Admin"){
+            $stmt = $this->connect()->prepare("SELECT * FROM admin WHERE user_id = ?;");
+            $stmt->execute([$this->id]);
+            if($stmt->rowCount() > 0){
+                $data = $stmt->fetch();
+                return $data;
+            }else{
+                return false;
+            }
+        }else if($this->type == "Patient"){
+            $stmt = $this->connect()->prepare("SELECT * FROM patient WHERE user_id = ?;");
+            $stmt->execute([$this->id]);
+            if($stmt->rowCount() > 0){
+                $data = $stmt->fetch();
+                return $data;
+            }else{
+                return false;
+            }
         }else{
-            return false;
+            $stmt = $this->connect()->prepare("SELECT * FROM doctor WHERE id = ?;");
+            $stmt->execute([$this->id]);
+            if($stmt->rowCount() > 0){
+                $data = $stmt->fetch();
+                return $data;
+            }else{
+                return false;
+            }
         }
+        
        }
     }

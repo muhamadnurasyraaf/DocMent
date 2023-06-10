@@ -4,10 +4,23 @@ class Login extends Dbh{
     private $username;
     private $password;
 
+    private $type;
+
     public function getId(){
-        $stmt = $this->connect()->prepare("SELECT * from user WHERE username = ?;");
-        $stmt->execute([$this->username]);
-        $data = $stmt->fetch();
+        if($this->type == "Admin"){
+            $stmt = $this->connect()->prepare("SELECT * from admin WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+        }else if($this->type == "Patient"){
+            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+        }else{
+            $stmt = $this->connect()->prepare("SELECT * from doctor WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+        }
+        
         if($stmt && !empty($data['user_id'])){
             return $data['user_id'];
         }else{
@@ -16,42 +29,77 @@ class Login extends Dbh{
     }
 
     public function isAdmin(){
-            $stmt = $this->connect()->prepare("SELECT * from user WHERE username = ?;");
-            $stmt->execute([$this->username]);
-            $data = $stmt->fetch();
-            if($data['type'] == "Admin"){
+            if($this->availableUsername() && $this->type == "Admin"){
                 return true;
             }else{
                 return false;
             }
     }
 
-    public function __construct($username,$password){
+    public function __construct($username,$type,$password){
         $this->username = $username;
+        $this->type = $type;
         $this->password = $password;
+        
     }
 
     private function availableUsername(){
-        $stmt = $this->connect()->prepare("SELECT * from user WHERE username = ?;");
-        $stmt->execute([$this->username]);
-        $status = false;
-        if($stmt->rowCount() > 0){
-            $status = true;
-        }else{
+        if($this->type == "Admin"){
+            $stmt = $this->connect()->prepare("SELECT * from admin WHERE username = ?;");
+            $stmt->execute([$this->username]);
             $status = false;
+            if($stmt->rowCount() > 0){
+                $status = true;
+            }else{
+                $status = false;
+            }
+        }else if($this->type == "Patient"){
+            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $status = false;
+            if($stmt->rowCount() > 0){
+                $status = true;
+            }else{
+                $status = false;
+            }
+        }else if($this->type == "Doctor"){
+            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $status = false;
+            if($stmt->rowCount() > 0){
+                $status = true;
+            }else{
+                $status = false;
+            }
         }
+        
         return $status;
     }
     private function verifyPass(){
-        $stmt = $this->connect()->prepare("SELECT * from user WHERE username = ?;");
-        $stmt->execute([$this->username]);
-        $data = $stmt->fetch();
-        $storedpassword = $data['password'];
+        if($this->type == "Admin"){
+            $stmt = $this->connect()->prepare("SELECT * from admin WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+            $storedpassword = $data['password'];
+        }else if($this->type == "Patient"){
+            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+            $storedpassword = $data['password'];
+        }else{
+            $stmt = $this->connect()->prepare("SELECT * from doctor WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+            $storedpassword = $data['password'];
+        }
+        
        
         if(password_verify($this->password,$storedpassword)){
             return true;
+        }else{
+            return false;
         }
-        return false;
+        
     }
 
     public function acceptUser(){

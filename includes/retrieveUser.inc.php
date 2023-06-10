@@ -1,10 +1,10 @@
 <?php
     require 'C:\laragon\www\DocMent\classes\login.classes.php';
     include 'C:\laragon\www\DocMent\classes\retrieveUser.class.php';
-    session_start();
+    
 
-    function getUserData($id){
-        $user = new User($id);
+    function getUserData($id,$type){
+        $user = new User($id,$type);
         $data = $user->getUser();
         if($data !== false){
             return $data;

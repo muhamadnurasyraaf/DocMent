@@ -4,8 +4,9 @@
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $type = $_POST['user'];
 
-        $userlogin = new Login($username,$password);
+        $userlogin = new Login($username,$type,$password);
 
         $status = $userlogin->acceptUser();
 
@@ -15,6 +16,7 @@
             if($user_id !== false && $userlogin->isAdmin()){
                 $_SESSION['id'] = $user_id;
                 $_SESSION['adminlogin'] = true;
+                $_SESSION['type'] = $type;
                 header("location:../admindashboard.php");
             }else if($user_id !== false){
                 $_SESSION['id'] = $user_id;

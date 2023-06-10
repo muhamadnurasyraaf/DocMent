@@ -297,6 +297,9 @@ tr:nth-child(odd){
   padding: 0.5em 1.2em;
   border-radius: 0.5em;
 }
+.radio{
+  display: block;
+}
 form{
   margin-top: 2.5em;
   display: flex;

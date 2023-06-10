@@ -36,8 +36,8 @@ class SignUp extends Dbh{
             $message = "Password does not match";
         }else if($this->lengthCheck() && $this->pwdMatch() && $this->validateNumber()){
             if($this->type == "Patient"){
-                $stmt = $this->connect()->prepare("INSERT INTO user(username,email,password,type,age) VALUES(?,?,?,?,?);");
-                $newstmt = $stmt->execute([$this->username,$this->email,$hashedpassword,$this->type,$this->age]);
+                $stmt = $this->connect()->prepare("INSERT INTO patient(username,email,password,age) VALUES(?,?,?,?);");
+                $newstmt = $stmt->execute([$this->username,$this->email,$hashedpassword,$this->age]);
                 if($newstmt){
                     $message = true;
                 }else{

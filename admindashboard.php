@@ -1,10 +1,15 @@
 <?php
-  include_once 'C:\laragon\www\DocMent\includes\retrieveUser.inc.php';
+  include 'C:\laragon\www\DocMent\includes\retrieveUser.inc.php';
+  include 'C:\laragon\www\DocMent\includes\datacount.inc.php';
+  session_start();
   $id = $_SESSION['id'];
-  $userdata = getUserData($id);
-  if(!$userdata['type'] == 'Admin'){
+  $type = $_SESSION['type'];
+  $userdata = getUserData($id,$type);
+  if(!isset($_SESSION['adminlogin'])){
     header("location: index.html"); //tak test lagi
   }
+
+  $patientCount = counter("patient");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +43,7 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="#" class="link flex">
+              <a href="#top" class="link flex">
                 <i class="bx bx-home-alt"></i>
                 <span>Dashboard</span>
               </a>
@@ -104,7 +109,7 @@
 
         <div class="sidebar_profile flex">
           <span class="nav_image">
-            <img src="userspfp/asy.jpg" alt="logo_img" />
+            <img src="userspfp/<?= $userdata['image']; ?>" alt="logo_img" />
           </span>
           <div class="data_text">
             <span class="name"><?= $userdata['username']; ?></span>
@@ -113,14 +118,14 @@
         </div>
       </div>
     </nav>
-    <div class="content top">
+    <div class="content top" id="top">
         <p>Dashboard</p>
     </div>
 
     <div id="stats">
       <div class="p-stats patient">
         <div class="types">
-          <p class="count">400</p>
+          <p class="count"><?= $patientCount; ?></p>
           <i class='bx bx-male-female'></i>
         </div>
         <div>
@@ -259,8 +264,9 @@
         <input type="text" name="password" placeholder="Password.." autocomplete="off">
         <input type="number" name="age" placeholder="Age" autocomplete="off">
         <div class="radio">
-          <label for=""><input type="radio" name="type" value="patient"> Patient</label>
-          <label for=""><input type="radio" name="type" value="doctor"> Doctor</label>
+          <label for="pt"><input type="radio" name="type" value="Patient" id="pt"> Patient</label>
+          <label for="dt"><input type="radio" name="type" value="Doctor" id="dt"> Doctor</label>
+          <label for="ad"><input type="radio" name="type" value="Admin" id="ad"> Admin</label>
         </div>
         <input type="submit" value="Submit" class="submit-btn">
       </form>

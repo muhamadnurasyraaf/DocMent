@@ -27,7 +27,7 @@
         <div>
             <p class="title">Everyone Deserve to be Healthy</p>
             <p class="subtitle">Book your appoinments in a few clicks</p>
-            <a href="login.html" class="btn ">Start Here</a>
+            <a href="login.php" class="btn ">Start Here</a>
             <p class="bot">&#128336; Only Take 2 Minutes</p>
         </div>
     </div>
@@ -35,8 +35,8 @@
         <div class="parent">
             <div class="child">
                 <ul>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="">Login</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.php">Login</a></li>
                     <li><a href="">Help</a></li>
                 </ul>
             </div>
