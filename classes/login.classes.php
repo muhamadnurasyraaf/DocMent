@@ -15,6 +15,17 @@ class Login extends Dbh{
         }
     }
 
+    public function isAdmin(){
+            $stmt = $this->connect()->prepare("SELECT * from user WHERE username = ?;");
+            $stmt->execute([$this->username]);
+            $data = $stmt->fetch();
+            if($data['type'] == "Admin"){
+                return true;
+            }else{
+                return false;
+            }
+    }
+
     public function __construct($username,$password){
         $this->username = $username;
         $this->password = $password;
@@ -47,15 +58,15 @@ class Login extends Dbh{
         $status = null;
         if($this->availableUsername()){
             if($this->verifyPass()){
-                $status = "true lah der";
+                $status = true;
             }else{
-               $status = "password salah kote";
+               $status = false;
             }
         }else{
-            $status = "takde username lah bang";
+            $status = false;
         }
         if(is_null($status)){
-            return "null lah doe";
+            return "Null";
         }else{
             return $status;
         }

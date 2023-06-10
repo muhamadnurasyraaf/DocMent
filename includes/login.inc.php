@@ -1,23 +1,33 @@
 <?php
-    include '../classes/login.classes.php';
+    require 'C:\laragon\www\DocMent\classes\login.classes.php';
 
+    if(isset($_POST['submit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-    $username = filter_var($_POST['username'],FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST['password'],FILTER_SANITIZE_STRING);
+        $userlogin = new Login($username,$password);
 
-    $userlogin = new Login($username,$password);
+        $status = $userlogin->acceptUser();
 
-    $status = $userlogin->acceptUser();
-
-    if(isset($status)){
-        session_start();
-        $user_id = $userlogin->getId();
-        if($user_id !== false){
-            $_SESSION['id'] = $user_id;
+        if($status){
+            session_start();
+            $user_id = $userlogin->getId();
+            if($user_id !== false && $userlogin->isAdmin()){
+                $_SESSION['id'] = $user_id;
+                $_SESSION['adminlogin'] = true;
+                header("location:../admindashboard.php");
+            }else if($user_id !== false){
+                $_SESSION['id'] = $user_id;
+                header("location:../clinics.html");
+            }
+            else{
+                header("location: ../index.html");
+                $_SESSION['id'] = "There's an error retrieving the user id";
+            }
         }else{
-            $_SESSION['id'] = "There's an error retrieving the user id";
+            echo "something wrong";
         }
-        header("location:../clinics.html");
     }
+    
 
     

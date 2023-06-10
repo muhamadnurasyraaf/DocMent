@@ -1,5 +1,12 @@
+<?php
+  include_once 'C:\laragon\www\DocMent\includes\retrieveUser.inc.php';
+  $id = $_SESSION['id'];
+  $userdata = getUserData($id);
+  if(!$userdata['type'] == 'Admin'){
+    header("location: index.html"); //tak test lagi
+  }
+?>
 <!DOCTYPE html>
-<!-- Coding by CodingNepal || www.codingnepalweb.com -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -100,8 +107,8 @@
             <img src="userspfp/asy.jpg" alt="logo_img" />
           </span>
           <div class="data_text">
-            <span class="name">Asyraaf</span>
-            <span class="email">masyraaf14@gmail.com</span>
+            <span class="name"><?= $userdata['username']; ?></span>
+            <span class="email"><?= $userdata['email']; ?></span>
           </div>
         </div>
       </div>
@@ -195,7 +202,7 @@
     </table>
 
     <p class="docReg">Clinic Approval Requests</p>
-    <table class="docApp">
+    <table class="docApp" id="clinicApp">
       <tr class="headClinc">
         <th>ID</th>
         <th>Owner</th>
@@ -245,17 +252,20 @@
     </table> <!--Clinics Request-->
 
     <p class="docReg">Insert New User</p>
-    <form action="" method="post">
-      <input type="text" name="username" placeholder="Username.." autocomplete="off">
-      <input type="email" name="email" placeholder="Email.." autocomplete="off">
-      <input type="text" name="password" placeholder="Password.." autocomplete="off">
-      <input type="number" name="age" placeholder="Age" autocomplete="off">
-      <div class="radio">
-        <label for=""><input type="radio" name="type" value="patient"> Patient</label>
-        <label for=""><input type="radio" name="type" value="doctor"> Doctor</label>
-      </div>
-      <input type="submit" value="Submit" class="submit-btn">
-    </form>
+    <div class="newUser">
+      <form action="" method="post" id="newUser">
+        <input type="text" name="username" placeholder="Username.." autocomplete="off">
+        <input type="email" name="email" placeholder="Email.." autocomplete="off">
+        <input type="text" name="password" placeholder="Password.." autocomplete="off">
+        <input type="number" name="age" placeholder="Age" autocomplete="off">
+        <div class="radio">
+          <label for=""><input type="radio" name="type" value="patient"> Patient</label>
+          <label for=""><input type="radio" name="type" value="doctor"> Doctor</label>
+        </div>
+        <input type="submit" value="Submit" class="submit-btn">
+      </form>
+    </div>
+    
     
     <p class="docReg">Notifications</p>
     <div class="notifications">
