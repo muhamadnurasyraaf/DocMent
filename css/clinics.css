@@ -50,6 +50,8 @@ header a{
 .clinics{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
 }
 .clinic-details{
     display: flex;

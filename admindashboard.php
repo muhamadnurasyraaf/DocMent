@@ -258,7 +258,7 @@
 
     <p class="docReg">Insert New User</p>
     <div class="newUser">
-      <form action="" method="post" id="newUser">
+      <form action="includes/signup.inc.php" method="post" id="newUser">
         <input type="text" name="username" placeholder="Username.." autocomplete="off">
         <input type="email" name="email" placeholder="Email.." autocomplete="off">
         <input type="text" name="password" placeholder="Password.." autocomplete="off">
