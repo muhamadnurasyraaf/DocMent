@@ -101,7 +101,7 @@
             <li class="item">
               <a href="#" class="link flex">
                 <i class="bx bx-cog"></i>
-                <span>Settings</span>
+                <span>Account Settings</span>
               </a>
             </li>
           </ul>
@@ -160,50 +160,50 @@
         <th>Clinic/Hospital ID</th>
         <th>Action</th>
       </tr>
-      <tr>
-        <td>8</td>
-        <td>Ahmad Kamal</td>
-        <td>Klinik Kesihatan Endau</td>
-        <td>
-          <div class="action">
-            <a href=""><i class='bx bx-check' ></i></a>
-            <a href=""><i class='bx bx-x' ></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Ahmad Kamal</td>
-        <td>Klinik Kesihatan Endau</td>
-        <td>
-          <div class="action">
-            <a href=""><i class='bx bx-check' ></i></a>
-            <a href=""><i class='bx bx-x' ></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Ahmad Kamal</td>
-        <td>Klinik Kesihatan Endau</td>
-        <td>
-          <div class="action">
-            <a href=""><i class='bx bx-check' ></i></a>
-            <a href=""><i class='bx bx-x' ></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Ahmad Kamal</td>
-        <td>Klinik Kesihatan Endau</td>
-        <td>
-          <div class="action">
-            <a href=""><i class='bx bx-check' ></i></a>
-            <a href=""><i class='bx bx-x' ></i></a>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td>8</td>
+          <td>Ahmad Kamal</td>
+          <td>Klinik Kesihatan Endau</td>
+          <td>
+            <div class="action">
+              <a href=""><i class='bx bx-check' ></i></a>
+              <a href=""><i class='bx bx-x' ></i></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Ahmad Kamal</td>
+          <td>Klinik Kesihatan Endau</td>
+          <td>
+            <div class="action">
+              <a href=""><i class='bx bx-check' ></i></a>
+              <a href=""><i class='bx bx-x' ></i></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Ahmad Kamal</td>
+          <td>Klinik Kesihatan Endau</td>
+          <td>
+            <div class="action">
+              <a href=""><i class='bx bx-check' ></i></a>
+              <a href=""><i class='bx bx-x' ></i></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Ahmad Kamal</td>
+          <td>Klinik Kesihatan Endau</td>
+          <td>
+            <div class="action">
+              <a href=""><i class='bx bx-check' ></i></a>
+              <a href=""><i class='bx bx-x' ></i></a>
+            </div>
+          </td>
+        </tr>
     </table>
 
     <p class="docReg">Clinic Approval Requests</p>
