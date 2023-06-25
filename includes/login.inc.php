@@ -18,7 +18,7 @@
                 $_SESSION['adminlogin'] = true;
                 $_SESSION['type'] = $type;
                 header("location:../admindashboard.php");
-            }else if($user_id !== false){
+            }else if($user_id !== false && !$userlogin->isAdmin()){
                 $_SESSION['id'] = $user_id;
                 header("location:../clinics.html");
             }

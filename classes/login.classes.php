@@ -10,7 +10,7 @@ class Login extends Dbh{
         if($this->type == "Admin"){
             $stmt = $this->connect()->prepare("SELECT * from admin WHERE username = ?;");
             $stmt->execute([$this->username]);
-            $data = $stmt->fetch();
+            $data = $stmt->fetch(); 
         }else if($this->type == "Patient"){
             $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
             $stmt->execute([$this->username]);

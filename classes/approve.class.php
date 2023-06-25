@@ -1,5 +1,5 @@
 <?php
-    
+    require_once 'C:\laragon\www\DocMent\classes\dbh.classes.php';
     class Approval extends Dbh{
         private $id;
         private $reply;
@@ -42,6 +42,9 @@
                         
                         $insert = $this->connect()->prepare("INSERT INTO doctor(username,email,age,password) VALUES(?,?,?,?);");
                         $insert->execute([$username,$email,$age,$password]);
+
+                        $delete = $this->connect()->prepare("DELETE FROM " . $this->type . "WHERE id = ? ;");
+                        $delete->execute([$this->id]);
                     }else if(strcasecmp($this->type,"clinic")){
                         $name = $data['name'];
                         $state = $data['state'];
@@ -50,15 +53,17 @@
 
                         $query = $this->connect()->prepare("INSERT INTO clinic(name,state,area,head_doctor_id) VALUES(?,?,?,?);");
                         $query->execute([$name,$state,$area,$headDoctor]);
+
+                        $delete = $this->connect()->prepare("DELETE FROM " . $this->type . "WHERE id = ? ;");
+                        $delete->execute([$this->id]);  
                     }
 
-                    $delete = $this->connect()->prepare("DELETE FROM " . $this->type . "WHERE id = ? ;");
-                    $delete->execute([$this->id]);
+                    
                 }else{
-                    //got rejected
+                    return false;//got rejected
                 }
             }else{
-                //clinic/doctor data not exist
+                return false;//clinic/doctor data not exist
             }
         }
         

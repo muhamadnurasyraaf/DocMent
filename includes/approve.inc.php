@@ -7,5 +7,10 @@
         $type = $_POST['type'];
 
         $approve = new Approval($id,$reply,$type);
+
+        $result = $approve->result();
+        if($result == false){
+            //echo error
+        }
     }
     
