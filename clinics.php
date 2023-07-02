@@ -32,7 +32,7 @@
         <div class="clinic-details">
             <img src="images/download.jpeg" class="clinic-img">
             <span>Klinik Kesihatan Endau</span>
-            <a href="booking.php?id=" class="book-link">Book Appoinment Now</a>
+            <a href="booking.php?id=<?= $row['id'];?>" class="book-link">Book Appoinment Now</a>
         </div>
         <?php endwhile;?>
    </section>
