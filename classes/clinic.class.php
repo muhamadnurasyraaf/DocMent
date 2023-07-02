@@ -21,4 +21,11 @@
             }
           
         }
+
+        public static function displayClinics(){
+            $dbh = new Dbh();
+            $stmt = $dbh->connect()->prepare("SELECT * FROM clinic");
+            $stmt->execute();
+            return $stmt;
+        }
     }

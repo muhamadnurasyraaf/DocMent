@@ -11,61 +11,51 @@
             $this->type = $type;
         }
 
-        private function availability(){
-            $stmt = $this->connect()->prepare("SELECT * FROM " . $this->type . "WHERE id = ?");
-            $stmt->execute([$this->id]);
-            if($stmt->rowCount() > 0){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        private function accept(){
-            if($this->reply == true){
-                return true;
-            }else{
-                return false;
-            }
-        }
-
-        public function result(){
-            if($this->availability()){
-                if($this->accept()){
-                    $stmt = $this->connect()->prepare("SELECT * FROM " . $this->type . "WHERE id = ?");
-                    $stmt->execute([$this->id]);
+        public function Result(){
+            if($this->type == "clinic"){
+                $stmt = $this->connect()->prepare("SELECT * FROM clinicTemp WHERE id = :id");
+                $stmt->bindParam(":id",$this->id);
+                $stmt->execute();
+                if($stmt->rowCount() > 0){
                     $data = $stmt->fetch();
-                    if(strcasecmp($this->type,"doctor")){
-                        $username = $data['username'];
-                        $email = $data['email'];
-                        $age = $data['age'];
-                        $password = $data['password'];
-                        
-                        $insert = $this->connect()->prepare("INSERT INTO doctor(username,email,age,password) VALUES(?,?,?,?);");
-                        $insert->execute([$username,$email,$age,$password]);
 
-                        $delete = $this->connect()->prepare("DELETE FROM " . $this->type . "WHERE id = ? ;");
-                        $delete->execute([$this->id]);
-                    }else if(strcasecmp($this->type,"clinic")){
-                        $name = $data['name'];
-                        $state = $data['state'];
-                        $area = $data['area'];
-                        $headDoctor = $data['head_doctor_id'];
+                    $name = $data['name'];
+                    $state = $data['state'];
+                    $area = $data['area'];
+                    $d_id = $data['head_doctor_id'];
+                    $q_code = is_null($data['qualification_code'] ? 'null' : $data['qualification_code']); 
 
-                        $query = $this->connect()->prepare("INSERT INTO clinic(name,state,area,head_doctor_id) VALUES(?,?,?,?);");
-                        $query->execute([$name,$state,$area,$headDoctor]);
+                    $q = $this->connect()->prepare("INSERT INTO clinic(name,state,area,head_doctor_id,qualification_code) VALUES(:name,:state,:area,:did,:qcode)");
+                    $q->bindParam(":name",$name);
+                    $q->bindParam(":state",$state);
+                    $q->bindParam(":area",$area);
+                    $q->bindParam(":did",$d_id);
+                    $q->bindParam(":qcode",$q_code);
 
-                        $delete = $this->connect()->prepare("DELETE FROM " . $this->type . "WHERE id = ? ;");
-                        $delete->execute([$this->id]);  
-                    }
+                    $q->execute();
 
-                    
+                    $qry = $this->connect()->prepare("DELETE FROM clinicTemp WHERE id = :id;");
+                    $qry->bindParam(":id",$this->id);
+                    $qry->execute();
+                   
+
+                   if(!$q){
+                    //error inserting
+                    return "Error : inserting data";
+                   }else if(!$qry){
+                    //error deleting 
+                    return "Error : deleting data";
+                   }else{
+                    $message = "Successfully Approved Clinic Registration";
+                    return $message;
+                   }
                 }else{
-                    return false;//got rejected
+                    return "Error : Data not found";
                 }
             }else{
-                return false;//clinic/doctor data not exist
+                return "Error : Type is undefined";
             }
+            
         }
-        
 
     }   

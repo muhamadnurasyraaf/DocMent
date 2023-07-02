@@ -1,3 +1,7 @@
+<?php
+    include_once 'C:\laragon\www\DocMent\classes\clinic.class.php';
+    $data = Clinic::displayClinics();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,46 +27,14 @@
             </ul>
         </div>
     </header>
-
-    <div class="top">
-        Filter your clinics : 
-
-        <div>
-            <label for="state">State</label>
-            <select name="State" id="state">
-                <option value="Johor">Johor</option>
-            </select>
-        </div>
-        <div>
-            <label for="area">Area</label>
-            <select name="area" id="area">
-                <option value="endau">Endau</option>
-            </select>
-        </div>
-    </div>
-
    <section class="clinics">
-
+        <?php while($row = $data->fetch()) :?>
         <div class="clinic-details">
             <img src="images/download.jpeg" class="clinic-img">
             <span>Klinik Kesihatan Endau</span>
+            <a href="booking.php?id=" class="book-link">Book Appoinment Now</a>
         </div>
-        
-        <div class="clinic-details">
-            <img src="images/download.jpeg" class="clinic-img">
-            <span>Klinik Kesihatan Endau</span>
-        </div>
-        
-        <div class="clinic-details">
-            <img src="images/download.jpeg" class="clinic-img">
-            <span>Klinik Kesihatan Endau</span>
-        </div>
-        
-        <div class="clinic-details">
-            <img src="images/download.jpeg" class="clinic-img">
-            <span>Klinik Kesihatan Endau</span>
-        </div>
-        
+        <?php endwhile;?>
    </section>
 
   

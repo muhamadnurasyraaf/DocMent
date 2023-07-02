@@ -1,9 +1,19 @@
 <?php
   include_once 'C:\laragon\www\docment\includes\clinic.inc.php';
+  include_once 'C:\laragon\www\DocMent\includes\approve.inc.php';
+  //to get data to display
   $id = isset($_GET['id']) ? $_GET['id'] : '';
   $isApproved = false;
 
-  $data = getCData($id,$isApproved);
+  $data = getCData($id,$isApproved); 
+
+  if(isset($_POST['approve'])){
+    $result = getApproval($id,true,"clinic");
+    
+  }
+  
+
+ 
 ?>
 
 <!doctype html>
@@ -35,6 +45,11 @@
             </ul>
         </div>
     </nav>
+    <?php if(isset($result)) :?>
+      <div class="alert alert-info">
+        <strong>Info!</strong> <?= $result;?>
+      </div>
+    <?php endif; ?>
     <div class="container mt-4 p-5">
         <div class="row">
           <div class="col">
@@ -50,8 +65,6 @@
               <input type="submit" value="Approve" name="approve" class="btn btn-primary">
               <input type="submit" value="Reject" name="reject" class="btn btn-secondary">
             </form>
-            <?php else :?>
-              <p>Data error</p>
             <?php endif; ?>
           </div>
         </div>

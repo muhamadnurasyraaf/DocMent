@@ -8,7 +8,7 @@
         }
 
         public function countUser(){
-            $stmt = $this->connect()->prepare("SELECT COUNT(username) as total FROM " . $this->type);
+            $stmt = $this->connect()->prepare("SELECT COUNT(*) as total FROM " . $this->type);
             $stmt->execute();
             $data = $stmt->fetch();
             return $data['total'];

@@ -27,7 +27,7 @@
                 $_SESSION['id'] = "There's an error retrieving the user id";
             }
         }else{
-            echo "something wrong";
+            echo "password salah lah bunguk";
         }
     }
     

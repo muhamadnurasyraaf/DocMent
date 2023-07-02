@@ -19,7 +19,7 @@
         <input type="text" name="username" required autocomplete="off" placeholder="Username">
         <input type="password" name="password" required placeholder="Password">
         <input type="submit" value="Login" name="submit" class="submit-btn">
-        <a href="">&larr;Back to Home Page</a>
+        <a href="index.php">&larr;Back to Home Page</a>
    </form>
 </body>
 </html>

@@ -2,11 +2,7 @@
     include 'includes/retrieveUser.inc.php';
     session_start();
     $id = $_SESSION['id'];
-    $data = getData($id);
-
-    if($data !== false){
-        
-    }
+    $clinicid = $_GET['id'];
 
 ?>
 <!DOCTYPE html>

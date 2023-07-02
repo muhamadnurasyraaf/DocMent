@@ -64,3 +64,9 @@ header a{
 .clinic-img{
     width: 100%;
 }
+.book-link{
+    background-color: #9a1750;
+    text-align: center;
+    color: white;
+    margin-top: 0.4em;
+}

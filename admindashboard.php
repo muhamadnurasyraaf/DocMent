@@ -1,15 +1,21 @@
 <?php
   include 'C:\laragon\www\DocMent\includes\retrieveUser.inc.php';
   include 'C:\laragon\www\DocMent\includes\datacount.inc.php';
+  include 'C:\laragon\www\DocMent\includes\adminReg.inc.php';
   session_start();
   $id = $_SESSION['id'];
   $type = $_SESSION['type'];
   $userdata = getUserData($id,$type);
   if(!isset($_SESSION['adminlogin'])){
-    header("location: index.html"); //tak test lagi
+    header("location: index.php"); //tak test lagi
   }
 
   $patientCount = counter("patient");
+
+  if(isset($_GET['result'])){
+    $result = $_GET['result'];
+  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,6 +116,12 @@
         <p>Dashboard</p>
     </div>
 
+    <?php if(isset($result) && $result == 1) :?>
+        <p style="text-align:center; color: green;">Successfully Registered</p>
+      <?php elseif(isset($result) && $result == 0) : ?>
+        <p style="text-align:center; color: red;">Failed to Register</p>
+      <?php endif;?>
+
     <div id="stats">
       <div class="p-stats patient">
         <div class="types">
@@ -140,18 +152,16 @@
       </div>
     </div>
     <p class="docReg">Insert New User</p>
+    
+    
     <div class="newUser">
-      <form action="includes/signup.inc.php" method="post" id="newUser">
+      <form action="includes/adminReg.inc.php" method="post" id="newUser">
         <input type="text" name="username" placeholder="Username.." autocomplete="off">
         <input type="email" name="email" placeholder="Email.." autocomplete="off">
         <input type="text" name="password" placeholder="Password.." autocomplete="off">
         <input type="number" name="age" placeholder="Age" autocomplete="off">
-        <div class="radio">
-          <label for="pt"><input type="radio" name="type" value="Patient" id="pt"> Patient</label>
-          <label for="dt"><input type="radio" name="type" value="Doctor" id="dt"> Doctor</label>
-          <label for="ad"><input type="radio" name="type" value="Admin" id="ad"> Admin</label>
-        </div>
-        <input type="submit" value="Submit" class="submit-btn">
+        <input type="text" name="type"placeholder="Admin/Patient/Doctor"autocomplete="off">
+        <input type="submit" name="submit" value="Submit" class="submit-btn">
       </form>
     </div>
     
