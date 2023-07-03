@@ -10,4 +10,9 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public static function closeConnection(){
+            global $conn;
+            $conn = null;
+        }
     }

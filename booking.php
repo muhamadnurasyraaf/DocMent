@@ -2,12 +2,11 @@
     include 'includes/retrieveUser.inc.php';
     include 'C:\laragon\www\DocMent\classes\doctor.class.php';
     session_start();
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['id']) && isset($_GET['id'])){
         $id = $_SESSION['id'];
         $clinicid = $_GET['id'];
         $doctors = Doctor::getDoctors($clinicid);
     }
-   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +25,8 @@
         <li><a href="clinics.php">Clinics</a></li>
         <li><a href="">Services</a></li>
     </nav>
-
     <p style="margin-left: 4em;">Book Your Appoinment</p>
+    
     <form action="includes/appoinmentReg.inc.php?clinicid=<?= $clinicid; ?>" method="post">
         <div class="doctor-group">
             <div><p>Available Doctors : </p></div>
