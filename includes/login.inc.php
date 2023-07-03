@@ -20,7 +20,7 @@
                 header("location:../admindashboard.php");
             }else if($user_id !== false && !$userlogin->isAdmin()){
                 $_SESSION['id'] = $user_id;
-                header("location:../clinics.html");
+                header("location:../clinics.php");
             }
             else{
                 header("location: ../index.html");

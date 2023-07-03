@@ -17,7 +17,7 @@
         <div>
             <img src="icons/doctor.png" class="main-icon">
             <h1 class="header1">Doc<span>Ment</span></h1>
-        </div>
+        </div>  
         <div class="nav">
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -28,6 +28,7 @@
         </div>
     </header>
    <section class="clinics">
+    <?php if($data->rowCount() > 0) : ?>
         <?php while($row = $data->fetch()) :?>
         <div class="clinic-details">
             <img src="images/download.jpeg" class="clinic-img">
@@ -35,6 +36,7 @@
             <a href="booking.php?id=<?= $row['id'];?>" class="book-link">Book Appoinment Now</a>
         </div>
         <?php endwhile;?>
+    <?php endif; ?>
    </section>
 
   
