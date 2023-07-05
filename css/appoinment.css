@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.appointment-list {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.appointment {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.appointment h3 {
+    margin-top: 0;
+}
+
+.appointment p {
+    margin: 10px 0;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2em;
+    padding: 2em 4em;
+    background-color: #e6f1fd;
+}
+li{
+    list-style-type: none;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}

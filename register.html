@@ -1,3 +1,11 @@
+<?php
+    if(isset($_GET['message'])){
+        $message = $_GET['message'];
+    }
+    
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +17,9 @@
     <title>Register</title>
 </head>
 <body>
+    <?php if(isset($message)):?>
+        <p style="text-align:center; color:red;"><?= $message;?></p>
+    <?php endif;?>
    <form action="includes/signup.inc.php" method="post" class="container">
         <p>Sign Up</p>
         <input type="text" name="username" required autocomplete="off" placeholder="Username">

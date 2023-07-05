@@ -1,3 +1,14 @@
+<?php
+  include_once 'C:\laragon\www\DocMent\includes\retrieveUser.inc.php';
+  include_once 'C:\laragon\www\DocMent\classes\clinic.class.php';
+  session_start();
+  $id = $_SESSION['id'];
+  $data = getUserData($id,'Doctor');
+
+  $isOwnClinic = Clinic::checkOwner($id);
+  $clinicId = $data['clinic_id'];
+  $work = Clinic::checkWorkingOn($clinicId);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +25,40 @@
         <div class="navbar-brand text-bg-primary ms-4">Doctor Dashboard</div>
         <div class="collapse navbar-collapse" id="navmenu">
            <ul class="navbar-nav ms-auto ">
-                <li class="nav-item "><a href="" class="nav-link text-bg-primary">Home</a></li>
+                <li class="nav-item "><a href="../index.php" class="nav-link text-bg-primary">Home</a></li>
                 <li class="nav-item "><a href="" class="nav-link text-bg-primary">Appoinments</a></li>
-                <li class="nav-item "><a href="" class="nav-link text-bg-primary"></a></li>                                                                                                                                                                                                                                                                                                                                                                                                     
+                <li class="nav-item "><a href="../dashboard.html" class="nav-link text-bg-primary">Head Doctor Dashboard</a></li>                                                                                                                                                                                                                                                                                                                                                                                                     
            </ul>
         </div>
     </nav>
 
+    <div class="container">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h5 class="card-title">Doctor Profile</h5>
+            <div class="form-group">
+              <label for="doctor-id">ID:</label>
+              <input type="text" class="form-control" id="doctor-id" value="<?= $data['id'];?>" readonly>
+            </div>
+            <div class="form-group">
+              <label for="doctor-name">Name:</label>
+              <input type="text" class="form-control" id="doctor-name" value="<?= $data['username']?>" readonly>
+            </div>
+            <div class="form-group">
+              <label for="doctor-age">Age:</label>
+              <input type="text" class="form-control" id="doctor-age" value="<?= $data['age']?>" readonly>
+            </div>
+            <div class="form-group">
+              <label for="doctor-email">Email:</label>
+              <input type="email" class="form-control" id="doctor-email" value="<?= $data['email'];?>" readonly>
+            </div>
+            <div class="form-group">
+              <label for="clinic-id">Clinic ID:</label>
+              <input type="email" class="form-control" id="clinic-id" value="<?= $data['clinic_id'];?>" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
    <div class="container">
         <div class="row m-5">
             <div class="col-6 py-5 col-sm-4 m-5">
@@ -47,20 +85,31 @@
    <hr>
 
    <div class="bottom">
+
         <div class="clinics">
             <div><p style="text-align: center;">Manage Your Clinics : </p></div>
-            <div class="row">
-                <a href="#" class="name" style="text-decoration: none;">
-                    <p style="font-weight: bold;">Klinik Syifa</p>
-                    <p style="text-decoration: overline;">Worker</p>
-                </a>
+              <?php if($isOwnClinic !== false):?>
+                <div class="row">
+                    <a href="#" class="name" style="text-decoration: none;">
+                        <p style="font-weight: bold;"><?= $isOwnClinic['name'];?></p>
+                        <p style="text-decoration: overline;">Owner</p>
+                    </a>
+                </div>
+            <?php endif; ?>
 
-            </div>
+            <?php if($work !== false && $id !== $clinicId) : ?>
+              <div class="row">
+                  <a href="#" class="name" style="text-decoration: none;">
+                      <p style="font-weight: bold;">Klinik Syifa</p>
+                      <p style="text-decoration: overline;">Worker</p>
+                  </a>
+              </div>
+            <?php endif;?>
         </div>
    </div>
 
    <div style="display: flex; justify-content: center; margin-top: 2em;">
-    <a href="#" style="text-align: center;">Register Your Clinic</a>
+    <a href="../registerClinic.php" style="text-align: center;">Register Your Clinic</a>
    </div>
   
    <style>

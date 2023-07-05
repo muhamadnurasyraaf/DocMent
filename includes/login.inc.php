@@ -18,13 +18,19 @@
                 $_SESSION['adminlogin'] = true;
                 $_SESSION['type'] = $type;
                 header("location:../admindashboard.php");
-            }else if($user_id !== false && !$userlogin->isAdmin()){
+            }else if($user_id !== false && $type == 'Doctor'){
                 $_SESSION['id'] = $user_id;
-                header("location:../clinics.php");
+                $_SESSION['logindoctor'] = true;
+                header("location:../doctorpages/doctordashboard.php");
             }
-            else{
-                header("location: ../index.html");
-                $_SESSION['id'] = "There's an error retrieving the user id";
+            else if($user_id !== false && !$userlogin->isAdmin()){
+                if($type == 'Patient'){
+                    $_SESSION['id'] = $user_id;
+                    $_SESSION['login'] = true;
+                    header("location:../clinics.php");
+                }
+            }else{
+               echo 'error in your system';
             }
         }else{
             echo "password salah lah bunguk";

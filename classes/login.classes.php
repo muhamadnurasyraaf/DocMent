@@ -15,7 +15,7 @@ class Login extends Dbh{
             $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
             $stmt->execute([$this->username]);
             $data = $stmt->fetch();
-        }else{
+        }else if($this->type == "Doctor"){
             $stmt = $this->connect()->prepare("SELECT * from doctor WHERE username = ?;");
             $stmt->execute([$this->username]);
             $data = $stmt->fetch();
@@ -23,7 +23,10 @@ class Login extends Dbh{
         
         if($stmt && !empty($data['user_id'])){
             return $data['user_id'];
-        }else{
+        }elseif($stmt && !empty($data['id'])){
+            return $data['id'];
+        }
+        else{
             return false;
         }
     }
@@ -63,7 +66,7 @@ class Login extends Dbh{
                 $status = false;
             }
         }else if($this->type == "Doctor"){
-            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
+            $stmt = $this->connect()->prepare("SELECT * from doctor WHERE username = ?;");
             $stmt->execute([$this->username]);
             $status = false;
             if($stmt->rowCount() > 0){

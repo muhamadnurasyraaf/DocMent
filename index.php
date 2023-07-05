@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +17,13 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="">Contact</a></li>
                 <li><a href="">Services</a></li>
+                <?php if(isset($_SESSION['login'])) : ?>
+                    <li><a href="profile.php">Profile</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </header>

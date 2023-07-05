@@ -26,6 +26,35 @@
             $dbh = new Dbh();
             $stmt = $dbh->connect()->prepare("SELECT * FROM clinic");
             $stmt->execute();
-            return $stmt;
+            if($stmt){
+                return $stmt;
+            }else{
+                return false;
+            }
+            
+        }
+
+        public static function checkOwner($id){
+            $dbh = new Dbh();
+            $stmt = $dbh->connect()->prepare("SELECT * FROM clinic WHERE head_doctor_id = :id");
+            $stmt->bindParam(":id",$id);
+            $stmt->execute();
+            if($stmt->rowCount() > 0){
+                return $stmt->fetch();
+            }else{
+                return false;
+            }
+        }
+
+        public static function checkWorkingOn($id){
+            $dbh = new Dbh();
+            $stmt = $dbh->connect()->prepare("SELECT * FROM clinic WHERE id = :id");
+            $stmt->bindParam(":id",$id);
+            $stmt->execute();
+            if($stmt->rowCount() > 0){
+                return $stmt->fetch();
+            }else{
+                return false;
+            }
         }
     }

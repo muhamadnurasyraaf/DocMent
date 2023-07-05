@@ -1,0 +1,32 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins',sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2em;
+    padding: 2em 4em;
+    background-color: #e6f1fd;
+}
+li{
+    list-style-type: none;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.details{
+    background-color: #e6f1fd;
+    width: fit-content;
+    margin: auto;
+    padding: 4em;
+    border-radius: 2em;
+}
+span{
+    text-decoration: overline;
+    font-weight: bold;
+}

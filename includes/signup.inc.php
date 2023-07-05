@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     if($message){
         header("location:../index.html");
     }else{
-        echo 'There was an error';
+        header("location: ../register.php?message=1");
     }
 
 
