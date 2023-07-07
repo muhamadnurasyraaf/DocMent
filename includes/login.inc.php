@@ -30,7 +30,7 @@
                     header("location:../clinics.php");
                 }
         }else{
-            echo "password salah lah bunguk";
+            echo "Invalid User Credentials";
         }
     }
     

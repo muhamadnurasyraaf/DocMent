@@ -23,7 +23,7 @@
                 $c_id = $doc['clinic_id'];
                 
                 $anotherstmt = $this->connect()->prepare("INSERT INTO doctor(username,email,age,password,clinic_id) 
-                VALUES(:username,:email,:age,:password,c_id);");
+                VALUES(:username,:email,:age,:password,:c_id);");
 
                 $anotherstmt->bindParam(":username",$username);
                 $anotherstmt->bindParam(":email",$email);
@@ -37,5 +37,11 @@
             $deletestmt = $this->connect()->prepare("DELETE FROM doctorTemp WHERE id = :id");
             $deletestmt->bindParam(":id",$deleteid);
             $deletestmt->execute();
+
+            if($anotherstmt->rowCount() > 0 && $deletestmt->rowCount() > 0){
+                return true;
+            }else{
+                return false;
+            }
         }
     }

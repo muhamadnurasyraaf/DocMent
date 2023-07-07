@@ -3,6 +3,10 @@
     include_once 'C:\laragon\www\docment\classes\listingDoctors.class.php';
     $total = Count::countData("doctorTemp");
     $doctor = DoctorList::listDoctorReq();
+    if(isset($_GET['message'])){
+      $message = $_GET['message'];
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +42,10 @@
       </ul>
     </div>
   </nav>
-
-  <div class="container mt-5">
+    <?php if(isset($message)):?>
+      <?php echo $message == 1 ? '<p style="text-align:center;color:green;">Succeed</p>': '<p style="text-align:center;color:red;">Failed</p>' ?>
+    <?php endif; ?>
+      <div class="container mt-5">
     <h2>Doctor Registration</h2>
     <table class="table table-striped">
       <thead>
