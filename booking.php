@@ -1,11 +1,14 @@
 <?php 
+    session_start();
     include 'includes/retrieveUser.inc.php';
     include 'C:\laragon\www\DocMent\classes\doctor.class.php';
-    session_start();
-    if(isset($_SESSION['id']) && isset($_GET['id'])){
-        $id = $_SESSION['id'];
-        $clinicid = $_GET['id'];
-        $doctors = Doctor::getDoctors($clinicid);
+    
+    if(isset($_GET['id'])){
+        if(isset($_SESSION['id'])){
+            $id = $_SESSION['id'];
+            $clinicid = $_GET['id'];
+            $doctors = Doctor::getDoctors($clinicid);
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -32,7 +35,8 @@
             <div><p>Available Doctors : </p></div>
             <div class="radio-group">
                 <?php while($row = $doctors->fetch()) : ?>
-                <label for=""><input type="radio" name="doctor" value="<?= $row['id'];?>"><?= $row['username'];?></label>
+                <label for=""><input type="radio" name="doctor" value="<?= $row['user_id'];?>"><?= $row['username'];?></label>
+                <input type="hidden" name="doctor_name" value="<?= $row['username'];?>">
                 <?php endwhile;?>
             </div>
         </div>          

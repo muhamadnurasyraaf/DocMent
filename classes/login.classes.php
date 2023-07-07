@@ -8,25 +8,25 @@ class Login extends Dbh{
 
     public function getId(){
         if($this->type == "Admin"){
-            $stmt = $this->connect()->prepare("SELECT * from admin WHERE username = ?;");
-            $stmt->execute([$this->username]);
+            $stmt = $this->connect()->prepare("SELECT * from admin WHERE username = :username;");
+            $stmt->bindParam(":username",$this->username);
+            $stmt->execute();
             $data = $stmt->fetch(); 
         }else if($this->type == "Patient"){
-            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = ?;");
-            $stmt->execute([$this->username]);
+            $stmt = $this->connect()->prepare("SELECT * from patient WHERE username = :username;");
+            $stmt->bindParam(":username",$this->username);
+            $stmt->execute();
             $data = $stmt->fetch();
         }else if($this->type == "Doctor"){
-            $stmt = $this->connect()->prepare("SELECT * from doctor WHERE username = ?;");
-            $stmt->execute([$this->username]);
+            $stmt = $this->connect()->prepare("SELECT * from doctor WHERE username = :username;");
+            $stmt->bindParam(":username",$this->username);
+            $stmt->execute();
             $data = $stmt->fetch();
         }
         
-        if($stmt && !empty($data['user_id'])){
-            return $data['user_id'];
-        }elseif($stmt && !empty($data['id'])){
-            return $data['id'];
-        }
-        else{
+        if($stmt->rowCount() > 0){
+          return $data['user_id'];
+        }else{
             return false;
         }
     }

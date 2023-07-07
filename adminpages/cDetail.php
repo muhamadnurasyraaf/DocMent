@@ -6,14 +6,10 @@
   $isApproved = false;
 
   $data = getCData($id,$isApproved); 
-
   if(isset($_POST['approve'])){
     $result = getApproval($id,true,"clinic");
     
   }
-  
-
- 
 ?>
 
 <!doctype html>

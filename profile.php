@@ -23,7 +23,7 @@
 <body>
     <nav>
         <li><a href="index.php">Home</a></li>
-        <li><a href="">Appoinments</a></li>
+        <li><a href="appoinments.php">Appoinments</a></li>
         <li><a href="clinics.php">Clinics</a></li>
     </nav>
 

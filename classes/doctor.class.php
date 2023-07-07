@@ -10,4 +10,15 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public static function getDoctorReq($id){
+            $conn = new Dbh();
+            $stmt = $conn->connect()->prepare("SELECT * FROM doctorTemp where id = :id");
+            $stmt->bindParam(':id',$clinic_id);
+            $stmt->execute();
+            $data = $stmt->fetch();
+            return $data;
+        }
+
+        
     }

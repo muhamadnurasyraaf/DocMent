@@ -7,10 +7,11 @@
             $clinicid = $_GET['clinicid'];
             $name = $_POST['fullname'];
             $email = $_POST['email'];
-            $desc = $_POST['email'];
+            $desc = $_POST['desc'];
             $date = $_POST['date'];
             $doctorId = $_POST['doctor'];
-            $app = new Appoinment($name,$date,$userid,$clinicid,$doctorId,$email);
+            $doctor_name = $_POST['doctor_name'];
+            $app = new Appoinment($name,$date,$userid,$clinicid,$doctorId,$email,$desc,$doctor_name);
             $result = $app->request();
             if($result){
                 $message = "Successfully Send Appoinment Request";

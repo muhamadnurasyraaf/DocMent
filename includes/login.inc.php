@@ -13,29 +13,26 @@
         if($status){
             session_start();
             $user_id = $userlogin->getId();
-            if($user_id !== false && $userlogin->isAdmin()){
-                $_SESSION['id'] = $user_id;
-                $_SESSION['adminlogin'] = true;
-                $_SESSION['type'] = $type;
-                header("location:../admindashboard.php");
-            }else if($user_id !== false && $type == 'Doctor'){
-                $_SESSION['id'] = $user_id;
-                $_SESSION['logindoctor'] = true;
-                header("location:../doctorpages/doctordashboard.php");
-            }
-            else if($user_id !== false && !$userlogin->isAdmin()){
-                if($type == 'Patient'){
+            $_SESSION['type'] = $type;
+            if($user_id !== false){
+                if($userlogin->isAdmin()){
+                    $_SESSION['id'] = $user_id;
+                    $_SESSION['adminlogin'] = true;
+                    $_SESSION['type'] = $type;
+                    header("location:../admindashboard.php");
+                }else if($type == "Doctor"){
+                    $_SESSION['id'] = $user_id;
+                    $_SESSION['logindoctor'] = true;
+                    header("location:../doctorpages/doctordashboard.php");
+                }else{
                     $_SESSION['id'] = $user_id;
                     $_SESSION['login'] = true;
                     header("location:../clinics.php");
                 }
-            }else{
-               echo 'error in your system';
-            }
         }else{
             echo "password salah lah bunguk";
         }
     }
     
 
-    
+} 

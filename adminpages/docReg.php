@@ -1,64 +1,82 @@
+<?php
+    include_once 'C:\laragon\www\docment\classes\dataCounter.class.php';
+    include_once 'C:\laragon\www\docment\classes\listingDoctors.class.php';
+    $total = Count::countData("doctorTemp");
+    $doctor = DoctorList::listDoctorReq();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/docReg.css">
-    <link rel="shortcut icon" href="../icons/doctor.png" type="image/x-icon">
-    <link flex href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Doctor Registration Requests</title>
-</head>
-<body>
-    <header>
-        <div>
-            <img src="../icons/doctor.png" class="main-icon">
-            <h1 class="header1">Doc<span>Ment</span></h1>
-        </div>
-        <div class="nav">
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Services</a></li>
-            </ul>
-        </div>
-    </header>
 
-    <p class="count">Remaining Requests : 1</p>
-    <section>
-        <div class="box">
-            <div>
-                <b>Registration ID : </b> 1
-            </div>
-            <div class="info">
-                <p><b>Username </b> : mamat03</p>
-                <p><b>Email </b> : mamat03@gmail.com</p>
-                <p><b>Age </b> : 25</p>
-                <a href="">See More</a>
-            </div>
-        </div>
-        <div class="box">
-            <div>
-                <b>Registration ID : </b> 1
-            </div>
-            <div class="info">
-                <p><b>Username </b> : mamat03</p>
-                <p><b>Email </b> : mamat03@gmail.com</p>
-                <p><b>Age </b> : 25</p>
-                <a href="">See More</a>
-            </div>
-        </div>
-        <div class="box">
-            <div>
-                <b>Registration ID : </b> 1
-            </div>
-            <div class="info">
-                <p><b>Username </b> : mamat03</p>
-                <p><b>Email </b> : mamat03@gmail.com</p>
-                <p><b>Age </b> : 25</p>
-                <a href="">See More</a>
-            </div>
-        </div>
-    </section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Registration</title>
+  <link rel="shortcut icon" href="../icons/doctor.png" type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Doctor Registration</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../admindashboard.php">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h2>Doctor Registration</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Clinic ID</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php if($doctor !== false) : ?>
+            <?php while ($row = $doctor->fetch()) : ?>
+                <tr>
+                <td><?= $row['id']?></td>
+                <td><?= $row['username']?></td>
+                <td><?= $row['email']?></td>
+                <td><?= $row['age']?></td>
+                <td><?= $row['clinic_id']?></td>
+                <td>
+                    <form action="../includes/approveDoc.inc.php" method="post">
+                        <input type="submit" value="Approve" name="approve" class="btn btn-success btn-sm">
+                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                        <input type="submit" value="Reject" name="reject" class="btn btn-danger btn-sm">
+                    </form>
+                </td>
+                </tr>
+            <?php endwhile;?>
+        <?php endif;?>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

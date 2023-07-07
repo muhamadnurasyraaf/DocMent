@@ -1,9 +1,18 @@
 <?php
     include_once 'C:\laragon\www\DocMent\classes\dbh.classes.php';
     class DoctorList extends Dbh{
-        private $clinicId;
+        
 
-        public function __construct($clinicId){
-            $this->connect()->prepare("SELECT * FROM doctor WHERE clinic_id = ?");
+        public static function listDoctorReq(){
+            $dbh = new Dbh();
+            $stmt = $dbh->connect()->prepare("SELECT * FROM doctorTemp");
+            $stmt->execute();
+            if($stmt->rowCount() > 0)
+            {  
+                return $stmt;
+            }else{
+                return false;
+            }
+            
         }
     }

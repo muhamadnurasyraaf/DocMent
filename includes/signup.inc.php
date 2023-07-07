@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
     $message = $user->signUpUser();
 
     if($message){
-        header("location:../index.html");
+        header("location:../index.php");
     }else{
         header("location: ../register.php?message=1");
     }

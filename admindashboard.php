@@ -62,19 +62,19 @@
               <span class="line"></span>
             </div>
             <li class="item">
-              <a href="#" class="link flex">
+              <a href="adminpages/docReg.php" class="link flex">
                 <i class='bx bx-plus-medical' ></i>
                 <span>Doctor Approval</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
+              <a href="adminpages/clinicReg.php" class="link flex">
                 <i class='bx bx-health' ></i>
                 <span>Clinic Requests</span>
               </a>
             </li>
             <li class="item">
-              <a href="#" class="link flex">
+              <a href="#newUser" class="link flex">
                 <i class="bx bx-cloud-upload"></i>
                 <span>Insert New User</span>
               </a>
@@ -154,7 +154,7 @@
     <p class="docReg">Insert New User</p>
     
     
-    <div class="newUser">
+    <div class="newUser" id="newUser">
       <form action="includes/adminReg.inc.php" method="post" id="newUser">
         <input type="text" name="username" placeholder="Username.." autocomplete="off">
         <input type="email" name="email" placeholder="Email.." autocomplete="off">

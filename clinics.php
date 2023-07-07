@@ -1,5 +1,6 @@
 <?php
     include_once 'C:\laragon\www\DocMent\classes\clinic.class.php';
+    session_start();
     $data = Clinic::displayClinics();
 ?>
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/clinics.css">
-    <link rel="shortcut icon" href="/icons/doctor.png" type="image/x-icon">
+    <link rel="shortcut icon" href="icons/doctor.png" type="image/x-icon">
     <title>Choose Your Clinic</title>
 </head>
 <body>

@@ -26,8 +26,8 @@
         <div class="collapse navbar-collapse" id="navmenu">
            <ul class="navbar-nav ms-auto ">
                 <li class="nav-item "><a href="../index.php" class="nav-link text-bg-primary">Home</a></li>
-                <li class="nav-item "><a href="" class="nav-link text-bg-primary">Appoinments</a></li>
-                <li class="nav-item "><a href="../dashboard.html" class="nav-link text-bg-primary">Head Doctor Dashboard</a></li>                                                                                                                                                                                                                                                                                                                                                                                                     
+                <li class="nav-item "><a href="doctor_app.php" class="nav-link text-bg-primary">Appoinments</a></li>
+                <li class="nav-item "><a href="dashboard.php" class="nav-link text-bg-primary">Head Doctor Dashboard</a></li>                                                                                                                                                                                                                                                                                                                                                                                                     
            </ul>
         </div>
     </nav>
@@ -109,7 +109,7 @@
    </div>
 
    <div style="display: flex; justify-content: center; margin-top: 2em;">
-    <a href="../registerClinic.php" style="text-align: center;">Register Your Clinic</a>
+    <a href="registerClinic.php" style="text-align: center;">Register Your Clinic</a>
    </div>
   
    <style>

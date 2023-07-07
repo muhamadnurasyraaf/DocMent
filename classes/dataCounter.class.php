@@ -13,4 +13,13 @@
             $data = $stmt->fetch();
             return $data['total'];
         }
+        public static function countData($table){
+            $dbh = new Dbh();
+            $stmt = $dbh->connect()->prepare("SELECT COUNT(*) as total FROM " . $table);
+            $stmt->execute();
+            $data = $stmt->fetch();
+            return $data['total'];
+        }
+
+        
     }

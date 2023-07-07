@@ -11,15 +11,17 @@
         }
 
         public function getClinic(){
-            if(!$this->isApproved || is_null($this->isApproved)){
+            
                 $stmt = $this->connect()->prepare("SELECT * FROM clinicTemp WHERE id = :id;");
                 $stmt->bindParam(':id',$this->id);
                 $stmt->execute();
-                return $stmt->fetch();
-            }else{
-                return false;
-            }
-          
+                if($stmt->rowCount() > 0){
+                    $data = $stmt->fetch();
+                
+                    return $data;
+                }else{
+                    return false;
+                }
         }
 
         public static function displayClinics(){

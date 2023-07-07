@@ -1,3 +1,11 @@
+<?php
+    include_once 'C:\laragon\www\docment\classes\clinic.class.php';
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +24,9 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href=""> </i>Home</a></li>
+                <li><a href="../index.php"> </i>Home</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="../help.html">Contact</a></li>
                 <li><a href="">Services</a></li>
             </ul>
         </div>
