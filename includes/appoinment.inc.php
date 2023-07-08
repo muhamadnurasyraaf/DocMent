@@ -13,9 +13,9 @@
         }
        $app = new AppoinmentResult($appoinmentId,$doctorid,$action,$reason);
        $result = $app->result();
-       if($result){
+       if($result == true){
             header("location: ../doctorpages/doctor_app.php");
        }else{
-        echo 'Failed';
+        echo $result;
        }
     }

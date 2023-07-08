@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="icons/doctor.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css'>
     <title>Dashboard</title>
 </head>

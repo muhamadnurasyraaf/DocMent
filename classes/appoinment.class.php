@@ -13,14 +13,13 @@
             $this->reason = $reason;
         }
        
-
-        public function result(){
-                $stmt = $this->connect()->prepare("SELECT * FROM bookingReq WHERE id = :id");
-                $stmt->bindParam(":id",$this->doctorId);
-                $stmt->execute();
-                $data = $stmt->fetch();
-
-                //fetching
+        public function result() {
+            $stmt = $this->connect()->prepare("SELECT * FROM bookingReq WHERE doctorId = :id");
+            $stmt->bindParam(":id", $this->doctorId);
+            $stmt->execute();
+        
+            if ($data = $stmt->fetch()) {
+                // Fetching
                 $fname = $data['fullname'];
                 $date = $data['date'];
                 $patientId = $data['patientId'];
@@ -28,36 +27,47 @@
                 $doctorId = $this->doctorId;
                 $email = $data['email'];
                 $status = $this->action == 'approve' ? 'Approved' : 'Rejected';
-                $appoinmentId = $data['id'];
-                //insert into appoinment table
-                $stmt = $this->connect()->prepare("INSERT INTO appoinment(fullname,date,patientId,clinicId,doctorId,email,status) 
-                VALUES(:fname,:date,:patientId,:clinicId,:doctorId,:email,:status);");
-
-                //bind param
-                $stmt->bindParam(":fname",$fname);
-                $stmt->bindParam(":date",$date);
-                $stmt->bindParam(":patientId",$patientId);
-                $stmt->bindParam(":clinicId",$clinicId);
-                $stmt->bindParam(":doctorId",$doctorId);
-                $stmt->bindParam(":email",$email);
-                $stmt->bindParam(":status",$status);
-                //executing
-                $stmt->execute();
-               
-                //deleting from bookingreq tables
-                $deletestmt = $this->connect()->prepare("DELETE FROM bookingreq WHERE id  = :id");
-                $deletestmt->bindParam(":id",$appoinmentId);
-                $deletestmt->execute();
-                if(!$stmt){
-                    return false;
+                $appointmentId = $data['id'];
+        
+                // Insert into appointment table
+                $insertStmt = $this->connect()->prepare("INSERT INTO appoinment (fullname, date, patientId, clinicId, doctorId, email, status) 
+                    VALUES (:fname, :date, :patientId, :clinicId, :doctorId, :email, :status)");
+        
+                // Bind parameters
+                $insertStmt->bindParam(":fname", $fname);
+                $insertStmt->bindParam(":date", $date);
+                $insertStmt->bindParam(":patientId", $patientId);
+                $insertStmt->bindParam(":clinicId", $clinicId);
+                $insertStmt->bindParam(":doctorId", $doctorId);
+                $insertStmt->bindParam(":email", $email);
+                $insertStmt->bindParam(":status", $status);
+        
+                // Execute insert statement
+                $insertStmt->execute();
+        
+                // Check if insert was successful
+                if ($insertStmt->rowCount() > 0) {
+                    // Deleting from bookingReq table
+                    $deleteStmt = $this->connect()->prepare("DELETE FROM bookingReq WHERE id = :id");
+                    $deleteStmt->bindParam(":id", $appointmentId);
+                    $deleteStmt->execute();
+        
+                    // Check if delete was successful
+                    if ($deleteStmt->rowCount() > 0) {
+                        return true;
+                    } else {
+                        return "Failed to delete booking request";
+                    }
+                } else {
+                    return "Failed to insert appointment";
                 }
-                else if(!$deletestmt){
-                    return false;
-                }else{
-                    return true;
-                }
+            } else {
+                return "No pending booking appointment request found";
+            }
         }
-
+        
+       
+      
 
         public static function displayPendingAppoinment($id){
             $conn = new Dbh();
