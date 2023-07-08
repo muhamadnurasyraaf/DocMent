@@ -41,14 +41,14 @@
                 <ul>
                     <li><a href="register.php">Register</a></li>
                     <li><a href="login.php">Login</a></li>
-                    <li><a href="">Help</a></li>
+                    <li><a href="help.html">Help</a></li>
                 </ul>
             </div>
             <div class="child">
                 <ul>
-                    <li><a href="">Sign Up as a Clinic/Hospital</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">About Us(Developers)</a></li>
+                    <li><a href="login.php">Sign Up as a Clinic/Hospital</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About Us(Developers)</a></li>
                 </ul>
             </div>
         </div>
