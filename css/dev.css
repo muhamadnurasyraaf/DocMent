@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: white;
+  background-image: url(https://img.freepik.com/premium-vector/abstract-modern-background-with-soft-orange-peach-color-gradient-memphis-element_8221-1227.jpg?w=1380);
+  background-position: center;
+  background-size: cover;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.wrapper{
+  margin-top: 0%;
+}
+
+header{
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #edc7b7;
+  color: #bab2b5;
+}
+
+.header1{
+  font-family: 'Catamaran',sans-serif;
+  color: #ac3b61;
+}
+header div{
+  display: flex;
+  align-items: center;
+}
+div ul{
+  display: flex;
+  gap: 1em;
+  list-style-type: none;
+}
+header a{
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+
+.team{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 5em;
+}
+
+.team .team_member{
+  background: #fff;
+  margin: 10px;
+  margin-bottom: 50px;
+  width: 300px;
+  padding: 15px;
+  line-height: 20px;
+  color: #8e8b8b;  
+  position: relative;
+  border-radius: 20px;
+  transition: all 0.7s;
+}
+
+.team .team_member h3{
+  color:black;
+  font-size: 26px;
+  margin-top: 50px;
+}
+
+.team .team_member p.role{
+  color: #ccc;
+  margin: 12px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.team .team_member .team_img{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.team .team_member .team_img img{
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 50%;
+}
+.team .team_member:hover{
+  background-color: #edc7b7;
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.footer{
+  padding: 1.6em;
+  background-color: #bab2b5;
+}
+.parent{
+  display: flex;
+  margin: 0 auto;
+  max-width: 500px;
+  justify-content: space-around;
+}
+.child ul{
+  display: flex;
+  flex-direction: column;
+}
+.child a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #ac3b61;
+}
+.icon{
+  display: flex;
+  justify-content: center;
+  gap: 1.7em;
+  margin: 1.4em;
+  font-size: 1.0em;
+  color: black;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+

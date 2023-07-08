@@ -1,0 +1,254 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@300&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap');
+ body{
+  font-family: 'Kanit', sans-serif;
+font-family: 'Merriweather', serif;
+ } 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  header{
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #edc7b7;
+    color: #bab2b5;
+  }
+  
+  .header1{
+    font-family: 'Catamaran',sans-serif;
+    color: #ac3b61;
+  }
+  header div{
+    display: flex;
+    align-items: center;
+  }
+  div ul{
+    display: flex;
+    gap: 1em;
+    list-style-type: none;
+  }
+  header a{
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+  }
+  .title{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 2em;
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    color: white;
+  }
+  .container1{
+    width: 100%;
+    margin: 0 auto;
+    padding: 5em;
+    background-color: #3EECAC;
+    background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+  }
+
+
+  .item2{
+    display: flex;
+    justify-content:space-around;
+    gap: 2em;
+    margin: 1.8em;
+  }
+  .footer{
+    padding: 1.6em;
+    background-color: #bab2b5;
+  }
+  .parent{
+    display: flex;
+    margin: 0 auto;
+    max-width: 500px;
+    justify-content: space-around;
+  }
+  .child ul{
+    display: flex;
+    flex-direction: column;
+  }
+  .child a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #ac3b61;
+  }
+.inputbox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin: 1.5em;
+    
+    
+}
+
+.box2{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3em;
+    margin: 0;
+}
+.details{
+    color:darkgreen;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+.icon{
+  display: flex;
+  justify-content:center;
+  background-color:darkseagreen;
+  color: white;
+  border-radius: 50%;
+  max-width: 50px;
+  height: 50px;
+  padding-top: 15px;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 500ms;
+}
+.details p.iname{
+  margin: 10px;
+  color:white;
+}
+.icon:hover{
+  background-color: darkgreen;
+}
+.box1{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  padding: 6em;
+  width: 40%;
+
+}
+.box1 h3{
+  font-family: 'Anton', sans-serif;
+  font-size: 45px;
+
+}
+
+.container2{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4em;
+}
+.container2:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url("https://www.seekpng.com/png/full/809-8093015_get-in-touch-with-track-revenue-contact-us.png") no-repeat center;
+  background-size: cover;
+  filter: blur(50px);
+  z-index: -1;
+}
+
+.contact-box{
+	max-width: 850px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+
+.left{
+	background: url("https://www.seekpng.com/png/full/809-8093015_get-in-touch-with-track-revenue-contact-us.png") no-repeat center;
+	background-size: cover;
+	height: 100%;
+}
+
+.right{
+	padding: 25px 40px;
+}
+
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+h2:after{
+	  content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #2ecc71;
+}
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea{
+	min-height: 150px;
+}
+
+.btn{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #2ecc71;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.btn:hover{
+    background-color: #27ae60;
+}
+
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
+}
+
+@media screen and (max-width: 880px){
+	.contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 200px;
+	}
+}

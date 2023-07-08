@@ -18,9 +18,9 @@
         <div class="nav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Services</a></li>
+                <li><a href="dev.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="help.html">Services</a></li>
                 <?php if(isset($_SESSION['login'])) : ?>
                     <li><a href="profile.php">Profile</a></li>
                 <?php endif; ?>
