@@ -1,5 +1,5 @@
 <?php
-    require 'C:\laragon\www\DocMent\classes\login.classes.php';
+    require_once 'C:\laragon\www\DocMent\classes\login.classes.php';
 
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
