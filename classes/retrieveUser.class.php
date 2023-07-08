@@ -29,7 +29,7 @@
                 return false;
             }
         }else{
-            $stmt = $this->connect()->prepare("SELECT * FROM doctor WHERE id = ?;");
+            $stmt = $this->connect()->prepare("SELECT * FROM doctor WHERE user_id = ?;");
             $stmt->execute([$this->id]);
             if($stmt->rowCount() > 0){
                 $data = $stmt->fetch();

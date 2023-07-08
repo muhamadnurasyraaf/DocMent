@@ -38,7 +38,7 @@
             <h5 class="card-title">Doctor Profile</h5>
             <div class="form-group">
               <label for="doctor-id">ID:</label>
-              <input type="text" class="form-control" id="doctor-id" value="<?= $data['id'];?>" readonly>
+              <input type="text" class="form-control" id="doctor-id" value="<?= $data['user_id'];?>" readonly>
             </div>
             <div class="form-group">
               <label for="doctor-name">Name:</label>
