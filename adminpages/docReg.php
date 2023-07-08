@@ -1,7 +1,6 @@
 <?php
     include_once 'C:\laragon\www\docment\classes\dataCounter.class.php';
     include_once 'C:\laragon\www\docment\classes\listingDoctors.class.php';
-    $total = Count::countData("doctorTemp");
     $doctor = DoctorList::listDoctorReq();
     if(isset($_GET['message'])){
       $message = $_GET['message'];
