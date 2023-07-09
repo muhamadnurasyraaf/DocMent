@@ -48,7 +48,7 @@
                 <ul>
                     <li><a href="login.php">Sign Up as a Clinic/Hospital</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="about.html">About Us(Developers)</a></li>
+                    <li><a href="dev.html">About Us(Developers)</a></li>
                 </ul>
             </div>
         </div>

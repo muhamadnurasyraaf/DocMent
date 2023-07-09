@@ -14,9 +14,11 @@
        $reg = new ClinicRegister($id,$clinicName,$state,$area,$qualificationCode);
        $result = $reg->regClinic();
        if($result){
-
+        echo "<script>alert('Successfully send registration request')</script>";
+        header("location: ../doctorpages/doctordashboard.php?message=1");
        }else{
-        
+        echo "<script>alert('Failed : Something Wrong')</script>";
+        header("location: ../doctorpages/doctordashboard.php?message=0");
        }
     }
 ?>

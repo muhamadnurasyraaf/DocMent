@@ -32,6 +32,15 @@
   if(isset($_GET['result'])){
     $result = $_GET['result'];
   }
+
+  if(isset($_GET['message'])){
+    $msg = $_GET['message'];
+    if($msg == 1){
+        echo 'Success';
+    }else{
+        echo 'Failed';
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

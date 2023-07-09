@@ -32,8 +32,8 @@
     <?php if($data->rowCount() > 0) : ?>
         <?php while($row = $data->fetch()) :?>
         <div class="clinic-details">
-            <img src="images/download.jpeg" class="clinic-img">
-            <span>Klinik Kesihatan Endau</span>
+            <img src="images/clinic.jpg" class="clinic-img">
+            <span><?= $row['name']?></span>
             <a href="booking.php?id=<?= $row['id'];?>" class="book-link">Book Appoinment Now</a>
         </div>
         <?php endwhile;?>

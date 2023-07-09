@@ -23,14 +23,13 @@
                     $state = $data['state'];
                     $area = $data['area'];
                     $d_id = $data['head_doctor_id'];
-                    $q_code = is_null($data['qualification_code'] ? 'null' : $data['qualification_code']); 
+                    
 
-                    $q = $this->connect()->prepare("INSERT INTO clinic(name,state,area,head_doctor_id,qualification_code) VALUES(:name,:state,:area,:did,:qcode)");
+                    $q = $this->connect()->prepare("INSERT INTO clinic(name,state,area,head_doctor_id) VALUES(:name,:state,:area,:did)");
                     $q->bindParam(":name",$name);
                     $q->bindParam(":state",$state);
                     $q->bindParam(":area",$area);
                     $q->bindParam(":did",$d_id);
-                    $q->bindParam(":qcode",$q_code);
 
                     $q->execute();
 

@@ -151,45 +151,6 @@
         </div>
       </div>
     </div>
-    <p class="docReg">Insert New User</p>
-    
-    
-    <div class="newUser" id="newUser">
-      <form action="includes/adminReg.inc.php" method="post" id="newUser">
-        <input type="text" name="username" placeholder="Username.." autocomplete="off">
-        <input type="email" name="email" placeholder="Email.." autocomplete="off">
-        <input type="text" name="password" placeholder="Password.." autocomplete="off">
-        <input type="number" name="age" placeholder="Age" autocomplete="off">
-        <input type="text" name="type"placeholder="Admin/Patient/Doctor"autocomplete="off">
-        <input type="submit" name="submit" value="Submit" class="submit-btn">
-      </form>
-    </div>
-    
-    
-    <p class="docReg">Notifications</p>
-    <div class="notifications">
-      <div class="noti">
-        <div class="n-type"><i class='bx bx-calendar-exclamation' ></i></div>
-        <p>There's some doctor registration request that you didn't seen yet</p>
-      </div>
-      <div class="noti">
-        <div class="n-type"><i class='bx bx-calendar-exclamation' ></i></div>
-        <p>New Email Archived!</p>
-      </div>
-      <div class="noti">
-        <div class="n-type"><i class='bx bx-calendar-exclamation' ></i></div>
-        <p>You got some messages from users,Please do check your message inbox</p>
-      </div>
-      <div class="noti">
-        <div class="n-type"><i class='bx bx-calendar-exclamation' ></i></div>
-        <p>Some bug in this system still available </p>
-      </div>
-    </div>
 
-    <p class="docReg">Search User</p>
-    <form action="">
-      <input type="text" name="username" placeholder="Username">
-      <input type="submit" value="Search" class="search-btn">
-    </form>
   </body>
 </html>

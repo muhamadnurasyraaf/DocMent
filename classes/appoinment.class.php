@@ -28,10 +28,11 @@
                 $email = $data['email'];
                 $status = $this->action == 'approve' ? 'Approved' : 'Rejected';
                 $appointmentId = $data['id'];
+                $doc_name = $data['doctor_name'];
         
                 // Insert into appointment table
-                $insertStmt = $this->connect()->prepare("INSERT INTO appoinment (fullname, date, patientId, clinicId, doctorId, email, status) 
-                    VALUES (:fname, :date, :patientId, :clinicId, :doctorId, :email, :status)");
+                $insertStmt = $this->connect()->prepare("INSERT INTO appoinment (fullname, date, patientId, clinicId, doctorId, email, status,doctor_name) 
+                    VALUES (:fname, :date, :patientId, :clinicId, :doctorId, :email,:status,:doc_name)");
         
                 // Bind parameters
                 $insertStmt->bindParam(":fname", $fname);
@@ -41,6 +42,7 @@
                 $insertStmt->bindParam(":doctorId", $doctorId);
                 $insertStmt->bindParam(":email", $email);
                 $insertStmt->bindParam(":status", $status);
+                $insertStmt->bindParam(":doc_name",$doc_name);
         
                 // Execute insert statement
                 $insertStmt->execute();

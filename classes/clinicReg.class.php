@@ -1,5 +1,5 @@
 <?php 
-
+    require_once 'dbh.classes.php';
     class ClinicRegister extends Dbh{
 
         private $doctor_id;
@@ -18,7 +18,7 @@
 
         public function regClinic(){
             $stmt = $this->connect()->prepare("INSERT INTO clinicTemp(name,state,area,head_doctor_id,qualification_code)
-             VALUES(:name,:state:area,:doctor_id,:q_code);");
+             VALUES(:name,:state,:area,:doctor_id,:q_code);");
             $stmt->bindParam(":name",$this->clinicName);
             $stmt->bindParam(":state",$this->state);
             $stmt->bindParam(":area",$this->area);

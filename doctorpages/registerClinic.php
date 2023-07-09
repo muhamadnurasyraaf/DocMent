@@ -10,7 +10,7 @@
     <div class="card mt-5">
       <div class="card-body">
         <h5 class="card-title">Clinic Registration</h5>
-        <form action="includes/clinicReg.inc.php" method="POST">
+        <form action="../includes/clinicReg.inc.php" method="POST">
           <div class="form-group">
             <label for="clinic-name">Clinic Name:</label>
             <input type="text" class="form-control" id="clinic-name" name="clinic_name" required autocomplete="off">
